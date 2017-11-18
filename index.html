@@ -14,7 +14,12 @@
     <div id="container">
         <h1>Sistemas Multimidia: Transito Cidadao</h1>
         <div id="esquerda" class="box">
-            Conteudo da div esquerda
+            Painel de testes de javascript<hr>
+            <input type="button" onclick ='limpatela()' value = "Limpar a tela do canvas"><br><br>
+            
+            <input type="button" onclick="DesenhaPlaca()" value = "Desenhar uma Placa">
+            
+            
         </div>
         <div id="cenario" class="box">
             <canvas id="mycanvas" width="612" height="440">
@@ -25,12 +30,12 @@
             Conteudo da div direita
         </div>
     </div>
+    
 
     <!--script que constroi o cenario-->
-    <script type="text/javascript" src="contexto.js">
-
-
-    </script>
+    <script type="text/javascript" src="contexto.js"></script>
+    <!--script que gera animaçoes na placa-->
+    <script type="text/javascript" src="AnimaPlaca.js"></script>
 </body>
 
 </html>
