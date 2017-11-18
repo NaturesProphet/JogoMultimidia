@@ -15,14 +15,24 @@ placa.src = "placas/lombada.png";
 
 //funçao que reseta o canvas
 function limpatela() {
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    ctx.drawImage(fundo,0,0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(fundo, 0, 0);
 }
 
-
+//desenha uma das placas no outdoor
 function DesenhaPlaca() {
-    origemx = centroX - (placa.width/2);
-    origemy = centroY - (placa.height/2);
-    
-    ctx.drawImage(placa,origemx, origemy);
+    origemx = centroX - (placa.width / 2);
+    origemy = centroY - (placa.height / 2);
+    ctx.drawImage(placa, origemx, origemy);
+}
+
+//renderiza o Oficial BarBraddy no canvas
+function DesenhaPolicial() {
+    var policial = new Image();
+    policial.src = "policial/policia.png"
+    origemx = canvas.width - policial.width;
+    origemy = canvas.height - policial.height;
+    policial.onload = function () {
+        ctx.drawImage(policial, origemx, origemy);
+    }
 }
