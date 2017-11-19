@@ -54,3 +54,13 @@ function abre () {
     var y = canvas.height - imgaberto.height;
     ctx.drawImage(imgaberto,x,y);
 }
+
+
+
+document.addEventListener("keydown", function(event)
+{	console.log(event);
+	if (event.keyCode == 38) abre();
+    if (event.keyCode == 40) parado();
+    if (event.keyCode == 37) esquerda();
+    if (event.keyCode == 39) direita();
+});
