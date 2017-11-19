@@ -5,7 +5,7 @@
     email: mateus.gigainfo@gmail.com
 */
 
-//instanciando as imagens
+//instanciando as imagens sprite
 var imgparado = new Image();
 imgparado.src = "policial/pol0.png";
 
@@ -14,53 +14,57 @@ imgesquerda.src = "policial/pol3.png";
 
 
 var imgdireita = new Image();
-imgdireita.src="policial/pol1.png";
+imgdireita.src = "policial/pol1.png";
 
 var imgaberto = new Image();
 imgaberto.src = "policial/pol2.png";
 
 
 
-
-
-
-
-
 //logica
 function esquerda() {
-    limpatela();
-    var x = canvas.width - imgesquerda.width +20;
+    atualiza();
+    var x = canvas.width - imgesquerda.width + 20;
     var y = canvas.height - imgesquerda.height;
-    ctx.drawImage(imgesquerda,x,y);
+    ctx.drawImage(imgesquerda, x, y);
 }
 
-function parado () {
-    limpatela();
-    var x = canvas.width - imgparado.width +20;
+function parado() {
+    atualiza();
+    var x = canvas.width - imgparado.width + 20;
     var y = canvas.height - imgparado.height;
-    ctx.drawImage(imgparado,x,y);
+    ctx.drawImage(imgparado, x, y);
 }
 
-function direita () {
-    limpatela();
-    var x = canvas.width - imgdireita.width +20;
+function direita() {
+    atualiza();
+    var x = canvas.width - imgdireita.width + 20;
     var y = canvas.height - imgdireita.height;
-    ctx.drawImage(imgdireita,x,y);
+    ctx.drawImage(imgdireita, x, y);
 }
 
-function abre () {
-    limpatela();
-    var x = canvas.width - imgaberto.width +20;
+function abre() {
+    atualiza();
+    var x = canvas.width - imgaberto.width + 20;
     var y = canvas.height - imgaberto.height;
-    ctx.drawImage(imgaberto,x,y);
+    ctx.drawImage(imgaberto, x, y);
 }
 
 
-
-document.addEventListener("keydown", function(event)
-{	console.log(event);
-	if (event.keyCode == 38) abre();
-    if (event.keyCode == 40) parado();
-    if (event.keyCode == 37) esquerda();
-    if (event.keyCode == 39) direita();
+//le eventos do teclado -> apenas para testar as funcoes
+document.addEventListener("keydown", function (event) {
+    switch (event.keyCode) {
+        case 37:
+            esquerda();
+            break;
+        case 38:
+            abre();
+            break;
+        case 39:
+            direita();
+            break;
+        case 40:
+            parado();
+            break;
+    }
 });
