@@ -12,6 +12,9 @@
 
 //auxiliar que define qual pergunta sera chamada
 var PerguntasFeitas = 0;
+var acertos = 0;
+var erros = 0;
+var eficacia = 0;
 
 
 function NovaPergunta() {

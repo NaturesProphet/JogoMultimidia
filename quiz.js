@@ -6,7 +6,7 @@
     para fazer as perguntas.
     
     Nao possui dependencias para ser carregado mas e requisito 
-    de outros scripts
+    de outros scripts, envia dados diretamente para controle.js
     
     autor: Mateus Garcia
     e-mail: mateus.gigainfo@gmail.com
@@ -129,7 +129,12 @@ Pergunta.prototype.montar = function () {
             this.l6 + this.l7 + this.l8 + this.l9;
         div.innerHTML = html;
     } else {
-        div.innerHTML = "<br><hr>Fim de Jogo<hr>";
+        eficacia = acertos / erros; //controle.js
+        if (eficacia > 100) eficacia = 100;
+        eficaciastr = '' + eficacia + '%';
+        div.innerHTML = "<br><hr>Fim de Jogo<hr>" +
+            "PONTUAÇAO:<br><br>Acertos: "+acertos +
+            "<br>Erros: "+erros+"<br>Eficacia: "+eficaciastr;
     }
 };
 
@@ -151,10 +156,12 @@ Pergunta.prototype.ValidaResposta = function () {
 
     if (userchoice == pergunta.resposta) {
         alert("ACERTOOOOOOOO MISERAVI");
+        acertos++;
         NovaPergunta();
     } else {
 
         alert("EROOOUUUUU");
+        erros++;
         NovaPergunta();
     }
 };
