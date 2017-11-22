@@ -26,4 +26,7 @@ function DesenhaPlaca() {
     ctx.drawImage(placa, origemx, origemy);
 }
 
-
+//aponta qual placa deve ser desenhada
+function SetPlaca(patch) {
+    placa.src = patch;
+}
