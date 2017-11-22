@@ -29,3 +29,7 @@
     display: block;
 	float: left;
 }
+
+#quiz {
+    font-size: 16px;
+}
