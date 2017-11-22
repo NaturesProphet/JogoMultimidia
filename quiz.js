@@ -17,6 +17,9 @@ function Pergunta() {
     this.b = false;
     this.c = false;
     this.d = false;
+    
+    //resposta correta
+    this.resposta = 'd'; //setar a resposta aqui
 
     //Arquivo de imagem contendo a placa a ser desenhada
     this.placa = new Image();
@@ -33,17 +36,17 @@ function Pergunta() {
 
     //Strings estaticas (Estrutura HTML do formulario)
     this.l1 = "<form>";
-    this.l2 = "<input type='radio' id='a'>" + this.r1 + "<br>";
-    this.l3 = "<input type='radio' id='b'>" + this.r2 + "<br>";
-    this.l4 = "<input type='radio' id='c'>" + this.r3 + "<br>";
-    this.l5 = "<input type='radio' id='d'>" + this.r4 + "<br>";
+    this.l2 = "<input type='radio' name = 'resp' id='a'>" + this.r1 + "<br>";
+    this.l3 = "<input type='radio' name = 'resp' id='b'>" + this.r2 + "<br>";
+    this.l4 = "<input type='radio' name = 'resp' id='c'>" + this.r3 + "<br>";
+    this.l5 = "<input type='radio' name = 'resp' id='d'>" + this.r4 + "<br>";
     this.l6 = "<br><br>";
     this.l7 = "<input type='reset' value='Clear'>";
-    this.l8 = "<input type='submit' value='Ok'>";
-    this.l9 = "</form>";
+    this.l8 = "<input type='submit' value='Ok' action='pergunta.ValidaResposta()'>";
+    this.l9 = "<input type='button' value = 'aa' onclick='pergunta.ValidaResposta()'></form>";
 
 }
-//implementaçao cos metodos da classe
+//implementaçao dos metodos da classe
 
 /*
     este metodo monta o codigo html dinamico da pergunta
@@ -58,7 +61,31 @@ Pergunta.prototype.montar = function () {
 
 
 
+/*
+    Este metodo valida a resposta fornecida pelo 
+    usuario no formulario
+*/
+Pergunta.prototype.ValidaResposta = function () {
+    alert('caiu');
+    var radio1 = document.getElementById('a');
+    var radio2 = document.getElementById('b');
+    var radio3 = document.getElementById('c');
+    var radio4 = document.getElementById('d');
+    
+    if (radio1.checked) alert ('radio1');
+    
+
+};
+
+
+
 
 
 pergunta = new Pergunta();
 pergunta.montar();
+
+function validar() {
+    console.log('1 chamada');
+    pergunta.ValidaResposta();
+    
+}
