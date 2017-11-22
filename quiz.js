@@ -17,47 +17,48 @@ function Pergunta() {
     this.b = false;
     this.c = false;
     this.d = false;
-    
+
     //Arquivo de imagem contendo a placa a ser desenhada
     this.placa = new Image();
     placa.src = ""; //setar o caminho d aplaca
-    
-    
+
+
     //Strings dinamicas (Respostas da pergunta)
     //serao tratadas nos metodos mais adiante
     this.r1 = ' ';
     this.r2 = ' ';
     this.r3 = ' ';
     this.r4 = ' ';
-    
-    
+
+
     //Strings estaticas (Estrutura HTML do formulario)
     this.l1 = "<form>";
-    this.l2 = "<input type='radio' id='a'>" +this.r1 + "<br>";
-    this.l3 = "<input type='radio' id='b'>" +this.r2 + "<br>";
-    this.l4 = "<input type='radio' id='c'>" +this.r3 + "<br>";
-    this.l5 = "<input type='radio' id='d'>" +this.r4 + "<br>";
+    this.l2 = "<input type='radio' id='a'>" + this.r1 + "<br>";
+    this.l3 = "<input type='radio' id='b'>" + this.r2 + "<br>";
+    this.l4 = "<input type='radio' id='c'>" + this.r3 + "<br>";
+    this.l5 = "<input type='radio' id='d'>" + this.r4 + "<br>";
     this.l6 = "<br><br>";
     this.l7 = "<input type='reset' value='Clear'>";
     this.l8 = "<input type='submit' value='Ok'>";
     this.l9 = "</form>";
 
 }
+//implementaçao cos metodos da classe
+
+/*
+    este metodo monta o codigo html dinamico da pergunta
+    dentro da div 'quiz' da div direita
+*/
+Pergunta.prototype.montar = function () {
+    var div = document.getElementById('quiz');
+    var html = this.l1 + this.l2 + this.l3 + this.l4 + this.l5 +
+        this.l6 + this.l7 + this.l8 + this.l9;
+    div.innerHTML = html;
+};
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+pergunta = new Pergunta();
+pergunta.montar();
