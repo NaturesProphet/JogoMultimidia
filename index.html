@@ -26,13 +26,14 @@
     <div id="container">
         <h1>Sistemas Multimidia: Transito Cidadao</h1>
         <div id="esquerda" class="box">
-            Painel de testes de javascript<hr>
-            <input type="button" onclick ='limpatela()' value = "Limpar a tela do canvas"><br><br>
-            
-            <input type="button" onclick="DesenhaPlaca()" value = "Desenhar uma Placa"><br><br>
-            
-            
-            
+            Painel de testes de javascript
+            <hr>
+            <input type="button" onclick='limpatela()' value="Limpar a tela do canvas"><br><br>
+
+            <input type="button" onclick="DesenhaPlaca()" value="Desenhar uma Placa"><br><br>
+
+
+
         </div>
         <div id="cenario" class="box">
             <canvas id="mycanvas" width="612" height="440">
@@ -40,22 +41,32 @@
             </canvas>
         </div>
         <div id="direita" class="box">
-            Testes de animaçao do policial.<br>
-            Use as setas do teclado para testar<hr>
-            <input type="button" value="esquerda" onclick="esquerda()">
-            <input type="button" value="abre" onclick = "abre()">
-            <input type="button" value="parado" onclick="parado()">
-            <input type="button" value="direita" onclick = "direita()">
+            Escolha uma resposta
+            <hr>
+            <div id='quiz'>
+                <form>
+                    <input type='radio' id='a'> Resposta padronizada A<br>
+                    <input type="radio" id='b'> Resposta padronizada B<br>
+                    <input type="radio" id='c'> Resposta padronizada C<br>
+                    <input type="radio" id='d'> Resposta padronizada D<br>
+                    <br><br>
+                    <input type="reset" value='Clear'>
+                    <input type="submit" value='Ok'>
+                </form>
+            </div>
         </div>
     </div>
-    
-    
+
+
     <!--script que constroi o cenario-->
     <script type="text/javascript" src="contexto.js"></script>
     <!--script que gera animaçoes -->
     <script type="text/javascript" src="AnimaPlaca.js"></script>
     <!--script que anima os sprites do policial -->
     <script type="text/javascript" src="AnimaPolicial.js"></script>
+    <!--script que gera e valida as perguntas e formularios do quiz-->
+    <script type="text/javascript" src="quiz.js"></script>
+
 </body>
 
 </html>
