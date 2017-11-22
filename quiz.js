@@ -42,8 +42,8 @@ function Pergunta() {
     this.l5 = "<input type='radio' name = 'resp' id='d'>" + this.r4 + "<br>";
     this.l6 = "<br><br>";
     this.l7 = "<input type='reset' value='Clear'>";
-    this.l8 = "<input type='submit' value='Ok' action='pergunta.ValidaResposta()'>";
-    this.l9 = "<input type='button' value = 'aa' onclick='pergunta.ValidaResposta()'></form>";
+    this.l8 = "<input type='button' value = 'OK' onclick='pergunta.ValidaResposta()'>";
+    this.l9 = "</form>";
 
 }
 //implementaçao dos metodos da classe
@@ -66,15 +66,23 @@ Pergunta.prototype.montar = function () {
     usuario no formulario
 */
 Pergunta.prototype.ValidaResposta = function () {
-    alert('caiu');
+    var userchoice;
     var radio1 = document.getElementById('a');
     var radio2 = document.getElementById('b');
     var radio3 = document.getElementById('c');
     var radio4 = document.getElementById('d');
     
-    if (radio1.checked) alert ('radio1');
+    if (radio1.checked) userchoice = 'a';
+    if (radio2.checked) userchoice = 'b';
+    if (radio3.checked) userchoice = 'c';
+    if (radio4.checked) userchoice = 'd';
     
-
+    if (userchoice == pergunta.resposta) {
+        //rotinas pro caso do acerto
+    } else {
+        
+        //rotinas pro caso do erro
+    }
 };
 
 
