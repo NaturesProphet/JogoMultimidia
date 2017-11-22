@@ -1,0 +1,35 @@
+#container {
+    text-align: center;
+    width: 1200px;
+    overflow: hidden; 
+    height: auto;
+    background: #DDDDDD;
+    margin: auto;
+    border-radius: 20px;
+}
+
+#esquerda {
+    width: 290px;
+    height: 435px;
+}
+
+#cenario {
+    position: relative;
+    margin: 0 auto;
+}
+
+#direita {
+    width: 290px;
+    height: 435px;
+    float: right;
+    text-align: left
+}
+
+.box {
+    display: block;
+	float: left;
+}
+
+#quiz {
+    font-size: 16px;
+}
