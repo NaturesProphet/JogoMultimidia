@@ -56,6 +56,28 @@ function Pergunta(numero) {
 
             break;
 
+            
+        case 1:
+            
+            this.placa.src = "placas/lombada.png";
+            this.r1 = "Obrigatorio uso de Chapeu";
+            this.r2 = "Chapeu na via";
+            this.r3 = "vendedor de chapeus a frente";
+            this.r4 = "Lombada";
+            this.resposta = 'd';
+
+            break;
+            
+        case 2:
+            
+            this.placa.src = "placas/AreaEscolar.PNG";
+            this.r1 = "Drope sua criança aqui";
+            this.r2 = "Vendedores de Droga adiante";
+            this.r3 = "Area Escolar";
+            this.r4 = "Bata nas costas da criança a frente";
+            this.resposta = 'c';
+
+            break;    
 
 
 
