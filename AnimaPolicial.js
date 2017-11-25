@@ -50,14 +50,13 @@ function falapisca() {
     ctx.drawImage(imgfalapisca, x, y);
 }
 
-//nana nenem
+//nana nenem - implementaçao de uma pausa na Thread
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 //animaçao autonoma do policial
 async function OhORapa() {
-
     parado();
     await sleep (200);
     fala();
@@ -81,40 +80,7 @@ async function OhORapa() {
     falapisca();
     await sleep (200);
     pisca();
-
     window.requestAnimationFrame(OhORapa);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//le eventos do teclado -> apenas para testar as funcoes
-document.addEventListener("keydown", function (event) {
-    switch (event.keyCode) {
-        case 37:
-            parado();
-            break;
-        case 38:
-            fala();
-            break;
-        case 39:
-            pisca();
-            break;
-        case 40:
-            falapisca();
-            break;
-    }
-});
 
 window.requestAnimationFrame(OhORapa);
