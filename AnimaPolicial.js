@@ -9,45 +9,45 @@
 var imgparado = new Image();
 imgparado.src = "policial/pol0.png";
 
-var imgesquerda = new Image();
-imgesquerda.src = "policial/pol3.png";
+var imgpisca = new Image();
+imgpisca.src = "policial/pol3.png";
 
 
-var imgdireita = new Image();
-imgdireita.src = "policial/pol1.png";
+var imgfala = new Image();
+imgfala.src = "policial/pol1.png";
 
-var imgaberto = new Image();
-imgaberto.src = "policial/pol2.png";
+var imgfalapisca = new Image();
+imgfalapisca.src = "policial/pol2.png";
 
 
 
 //logica
-function esquerda() {
+function pisca() {
     atualiza();
-    var x = canvas.width - imgesquerda.width + 20;
-    var y = canvas.height - imgesquerda.height;
-    ctx.drawImage(imgesquerda, x, y);
+    var x = canvas.width - imgpisca.width;
+    var y = canvas.height - imgpisca.height;
+    ctx.drawImage(imgpisca, x, y);
 }
 
 function parado() {
     atualiza();
-    var x = canvas.width - imgparado.width + 20;
+    var x = canvas.width - imgparado.width;
     var y = canvas.height - imgparado.height;
     ctx.drawImage(imgparado, x, y);
 }
 
-function direita() {
+function fala() {
     atualiza();
-    var x = canvas.width - imgdireita.width + 20;
-    var y = canvas.height - imgdireita.height;
-    ctx.drawImage(imgdireita, x, y);
+    var x = canvas.width - imgfala.width;
+    var y = canvas.height - imgfala.height;
+    ctx.drawImage(imgfala, x, y);
 }
 
-function abre() {
+function falapisca() {
     atualiza();
-    var x = canvas.width - imgaberto.width + 20;
-    var y = canvas.height - imgaberto.height;
-    ctx.drawImage(imgaberto, x, y);
+    var x = canvas.width - imgpisca.width;
+    var y = canvas.height - imgpisca.height;
+    ctx.drawImage(imgfalapisca, x, y);
 }
 
 
@@ -55,16 +55,16 @@ function abre() {
 document.addEventListener("keydown", function (event) {
     switch (event.keyCode) {
         case 37:
-            esquerda();
+            parado();
             break;
         case 38:
-            abre();
+            fala();
             break;
         case 39:
-            direita();
+            pisca();
             break;
         case 40:
-            parado();
+            falapisca();
             break;
     }
 });
