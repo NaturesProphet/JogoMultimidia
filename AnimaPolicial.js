@@ -50,37 +50,49 @@ function falapisca() {
     ctx.drawImage(imgfalapisca, x, y);
 }
 
+
+
 //nana nenem - implementaçao de uma pausa na Thread
 function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-//animaçao autonoma do policial
+
+/*
+    animaçao autonoma do policial
+    utilizei o conceito de Thread aqui atraves do async, isto permite
+    que a animaçao possa rodar sem "prender" a execuçao da aba no 
+    navegador, o que do contrario aconteceria.
+*/
+var ID;
 async function OhORapa() {
     parado();
-    await sleep (200);
+    await sleep(200);
     fala();
-    await sleep (200);
+    await sleep(200);
     parado();
-    await sleep (300);
+    await sleep(300);
     fala();
-    await sleep (100);
+    await sleep(100);
     parado();
-    await sleep (200);
+    await sleep(200);
     fala();
-    await sleep (100);
+    await sleep(100);
     falapisca();
-    await sleep (200);
+    await sleep(200);
     pisca();
-    await sleep (200);
+    await sleep(200);
     parado();
-    await sleep (200);
+    await sleep(200);
     fala();
-    await sleep (200);
+    await sleep(200);
     falapisca();
-    await sleep (200);
+    await sleep(200);
     pisca();
     window.requestAnimationFrame(OhORapa);
 }
 
-window.requestAnimationFrame(OhORapa);
+
+function CalaBoca() {
+    window.cancelAnimationFrame(ID);
+}
