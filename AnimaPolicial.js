@@ -50,6 +50,54 @@ function falapisca() {
     ctx.drawImage(imgfalapisca, x, y);
 }
 
+//nana nenem
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+//animaçao autonoma do policial
+async function OhORapa() {
+
+    parado();
+    await sleep (200);
+    fala();
+    await sleep (200);
+    parado();
+    await sleep (300);
+    fala();
+    await sleep (100);
+    parado();
+    await sleep (200);
+    fala();
+    await sleep (100);
+    falapisca();
+    await sleep (200);
+    pisca();
+    await sleep (200);
+    parado();
+    await sleep (200);
+    fala();
+    await sleep (200);
+    falapisca();
+    await sleep (200);
+    pisca();
+
+    window.requestAnimationFrame(OhORapa);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //le eventos do teclado -> apenas para testar as funcoes
 document.addEventListener("keydown", function (event) {
@@ -68,3 +116,5 @@ document.addEventListener("keydown", function (event) {
             break;
     }
 });
+
+window.requestAnimationFrame(OhORapa);
