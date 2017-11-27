@@ -27,3 +27,5 @@ function NovaPergunta() {
     pergunta.montar();
     PerguntasFeitas++;
 }
+
+//isto é um teste
