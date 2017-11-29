@@ -162,5 +162,28 @@ async function OhORapa(tempo) {
         }
     }
     
-    parado();
+    parado(); //volta a posiçao parado ao termino da animaçao
 }
+
+//inicio - executa no carregamento da pagina
+
+var a1 = new Audio();
+var a2 = new Audio();
+
+
+a1.src = "Storyboard2/1.wav";
+//3200
+OhORapa(3200);
+a1.play();
+
+
+
+
+
+
+
+
+
+
+
+
