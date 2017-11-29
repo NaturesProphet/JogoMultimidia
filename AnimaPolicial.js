@@ -167,21 +167,32 @@ async function OhORapa(tempo) {
 
 //inicio - executa no carregamento da pagina
 
-var a1 = new Audio();
-var a2 = new Audio();
+
 
 
 
 async function start() {
+    var a1 = new Audio();
+    var a2 = new Audio();
+    var a3 = new Audio();
     a1.src = "Storyboard2/1.wav";
     //3200
-
     a2.src = "Storyboard2/2.wav";
+    //8000
+    a3.src = "Storyboard2/3.wav";
+    //10000
     OhORapa(3200);
     a1.play();
     await sleep(4000);
+    
     OhORapa(7800);
     a2.play();
+    await sleep(8500);
+    
+    OhORapa(10000);
+    a3.play();
+    await sleep(11000);
+    
 }
 
 start();
