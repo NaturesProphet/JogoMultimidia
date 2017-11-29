@@ -46,6 +46,21 @@ function Pergunta(numero) {
     switch (numero) {
 
         case 0:
+            this.placa.src = "placas/curvacentuadaesquerda.PNG";
+            this.r1 = "Uno Bengador a esquerda";
+            this.r2 = "Esquerdistas nao passarao";
+            this.r3 = "curva leve a esquerda";
+            this.r4 = "curva acentuada a esquerda";
+            this.resposta = 'd';
+            
+            break;
+            
+            
+            
+            
+            
+            
+        case 99:
 
             this.placa.src = "placas/VelMax.PNG";
             this.r1 = "Velocidade Minima permitida 80KM/h";
@@ -177,12 +192,18 @@ Pergunta.prototype.ValidaResposta = function () {
     if (radio4.checked) userchoice = 'd';
 
     if (userchoice == pergunta.resposta) {
-        alert("ACERTOOOOOOOO MISERAVI");
+        var somacertou = new Audio();
+        somacertou.src = "Storyboard2/6.wav";
+        somacertou.play();
+        
+
         acertos++;
         NovaPergunta();
     } else {
 
-        alert("EROOOUUUUU");
+        var somerrou = new Audio();
+        somerrou.src = "Storyboard2/7.wav";
+        somerrou.play();
         erros++;
         NovaPergunta();
     }
