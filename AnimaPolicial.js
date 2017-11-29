@@ -63,36 +63,136 @@ function sleep(ms) {
     utilizei o conceito de Thread aqui atraves do async, isto permite
     que a animaçao possa rodar sem "prender" a execuçao da aba no 
     navegador, o que do contrario aconteceria.
+    
+    esta funçao e temporizada, executa durante o tempo passado
+    via parametro, em milisegundos
+    
+    nao e o melhor algoritimo que eu podia executar do ponto
+    de vista de desempenho, mas com o tempo que falta, 
+    WHO CARES !?!?!?!?    (Deal with it)
 */
-var ID;
-async function OhORapa() {
-    parado();
-    await sleep(200);
-    fala();
-    await sleep(200);
-    parado();
-    await sleep(300);
-    fala();
-    await sleep(100);
-    parado();
-    await sleep(200);
-    fala();
-    await sleep(100);
-    falapisca();
-    await sleep(200);
-    pisca();
-    await sleep(200);
-    parado();
-    await sleep(200);
-    fala();
-    await sleep(200);
-    falapisca();
-    await sleep(200);
-    pisca();
-    window.requestAnimationFrame(OhORapa);
-}
+
+async function OhORapa(tempo) {
+    parado(); //inicia na posicao parado.
+    //entra num loop que se encerra ao acabar o tempo informado
+    while (tempo >= 0) {
+
+        await sleep(200);
+        fala();
+        tempo -= 200;
 
 
-function CalaBoca() {
-    window.cancelAnimationFrame(ID);
+
+        if (tempo >= 0) {
+            await sleep(200);
+            parado();
+            tempo -= 200;
+        }
+
+
+
+        if (tempo >= 0) {
+            await sleep(300);
+            fala();
+            tempo -= 300;
+        }
+
+
+
+        if (tempo >= 0) {
+            await sleep(100);
+            parado();
+            tempo -= 100;
+        }
+
+
+
+        if (tempo >= 0) {
+            await sleep(200);
+            fala();
+            tempo -= 200;
+        }
+
+
+
+        if (tempo >= 0) {
+            await sleep(100);
+            falapisca();
+            tempo -= 100;
+        }
+
+
+
+        if (tempo >= 0) {
+            await sleep(200);
+            pisca();
+            tempo -= 200;
+        }
+
+
+
+        if (tempo >= 0) {
+            await sleep(200);
+            parado();
+            tempo -= 200;
+        }
+
+
+
+        if (tempo >= 0) {
+            await sleep(200);
+            fala();
+            tempo -= 200;
+        }
+
+
+
+        if (tempo >= 0) {
+            await sleep(200);
+            falapisca();
+            tempo -= 200;
+        }
+
+
+
+        if (tempo >= 0) {
+            await sleep(200);
+            pisca();
+            tempo -= 200;
+        }
+    }
+
+    parado(); //volta a posiçao parado ao termino da animaçao
 }
+
+//inicio - executa no carregamento da pagina
+
+
+
+
+
+async function start() {
+    var a1 = new Audio();
+    var a2 = new Audio();
+    var a3 = new Audio();
+    a1.src = "Storyboard2/1.wav";
+    //3200
+    a2.src = "Storyboard2/2.wav";
+    //8000
+    a3.src = "Storyboard2/3.wav";
+    //10000
+    OhORapa(3200);
+    a1.play();
+    await sleep(4000);
+    
+    OhORapa(7800);
+    a2.play();
+    await sleep(8500);
+    
+    OhORapa(10000);
+    a3.play();
+    await sleep(11000);
+    
+}
+
+start();

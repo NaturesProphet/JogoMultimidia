@@ -21,6 +21,10 @@ function Pergunta(numero) {
     this.c = false;
     this.d = false;
 
+    this.som = new Audio(); //som da resposta
+    this.atraso = 0; //duracao em ms da resposta
+
+
     //resposta correta
     this.resposta = ''; //setar a resposta aqui
 
@@ -46,41 +50,57 @@ function Pergunta(numero) {
     switch (numero) {
 
         case 0:
+            this.placa.src = "placas/curvacentuadaesquerda.PNG";
+            this.r1 = "Uno Bengador a esquerda";
+            this.r2 = "Esquerdistas nao passarao";
+            this.r3 = "curva leve a esquerda";
+            this.r4 = "curva acentuada a esquerda";
+            this.resposta = 'd';
+            this.som.src = "Storyboard2/4.wav";
+            this.atraso = 3000;
 
-            this.placa.src = "placas/VelMax.PNG";
-            this.r1 = "Velocidade Minima permitida 80KM/h";
-            this.r2 = "Velocidade Maxima permitida 80KM/h";
-            this.r3 = "Pistas em 8 e circulares a frente";
-            this.r4 = "Pedagio R$ 80,00";
+            break;
+
+        case 1:
+            this.placa.src = "placas/curvaD.PNG";
+            this.r1 = "Uno Bengador a direita";
+            this.r4 = "Bolsonaro vem ai";
+            this.r3 = "reta curvilinea a direita";
+            this.r2 = "curva acentuada a direita";
             this.resposta = 'b';
 
-            break;
-
-            
-        case 1:
-            
-            this.placa.src = "placas/lombada.png";
-            this.r1 = "Obrigatorio uso de Chapeu";
-            this.r2 = "Chapeu na via";
-            this.r3 = "vendedor de chapeus a frente";
-            this.r4 = "Lombada";
-            this.resposta = 'd';
+            this.som.src = "Storyboard2/CurvaD.wav";
+            this.atraso = 3000;
 
             break;
-            
+
         case 2:
-            
-            this.placa.src = "placas/AreaEscolar.PNG";
-            this.r1 = "Drope sua criança aqui";
-            this.r2 = "Vendedores de Droga adiante";
-            this.r3 = "Area Escolar";
-            this.r4 = "Bata nas costas da criança a frente";
+            this.placa.src = "placas/pistaSinDir.PNG";
+            this.r1 = "Pista sinuosa a direita";
+            this.r2 = "Condutores em zigue-zague obrigatorio";
+            this.r3 = "Santander a frente";
+            this.r4 = "Siga em S";
+            this.resposta = 'a';
+
+            this.som.src = "Storyboard2/pistaSinDir.wav";
+            this.atraso = 3000;
+
+
+            break;
+
+        case 3:
+            this.placa.src = "placas/vialateralEsq.PNG";
+            this.r1 = "Transito impedido";
+            this.r2 = "em terra fofa, Tatu caminha dentro";
+            this.r3 = "Via Lateral a esquerda";
+            this.r4 = "Animais nja pista";
             this.resposta = 'c';
 
-            break;    
+            this.som.src = "Storyboard2/VilaLatEsq.wav";
+            this.atraso = 3000;
 
 
-
+            break;
 
 
         default:
@@ -145,18 +165,19 @@ function Pergunta(numero) {
     dentro da div 'quiz' da div direita
 */
 Pergunta.prototype.montar = function () {
+    OhORapa(0);
     var div = document.getElementById('quiz');
     if (this.gameover == false) {
         var html = this.l1 + this.l2 + this.l3 + this.l4 + this.l5 +
             this.l6 + this.l7 + this.l8 + this.l9;
         div.innerHTML = html;
     } else {
-        eficacia = acertos / erros; //controle.js
-        if (eficacia > 100) eficacia = 100;
-        eficaciastr = '' + eficacia + '%';
+        eficacia = (acertos / (acertos + erros)) * 100;  //controle.js
+
+        eficaciastr = eficacia + '%';
         div.innerHTML = "<br><hr>Fim de Jogo<hr>" +
-            "PONTUAÇAO:<br><br>Acertos: "+acertos +
-            "<br>Erros: "+erros+"<br>Eficacia: "+eficaciastr;
+            "PONTUAÇAO:<br><br>Acertos: " + acertos +
+            "<br>Erros: " + erros + "<br>Eficacia: " + eficaciastr;
     }
 };
 
@@ -164,7 +185,7 @@ Pergunta.prototype.montar = function () {
     Este metodo valida a resposta fornecida pelo 
     usuario no formulario
 */
-Pergunta.prototype.ValidaResposta = function () {
+Pergunta.prototype.ValidaResposta = async function () {
     var userchoice;
     var radio1 = document.getElementById('a');
     var radio2 = document.getElementById('b');
@@ -176,13 +197,27 @@ Pergunta.prototype.ValidaResposta = function () {
     if (radio3.checked) userchoice = 'c';
     if (radio4.checked) userchoice = 'd';
 
+    this.som.play();
+    OhORapa(3000);
+    await sleep(3000);
+
     if (userchoice == pergunta.resposta) {
-        alert("ACERTOOOOOOOO MISERAVI");
+        var somacertou = new Audio();
+        somacertou.src = "Storyboard2/6.wav";
+        somacertou.play();
+        OhORapa(3000);
+        await sleep(3000);
+
+
         acertos++;
         NovaPergunta();
     } else {
 
-        alert("EROOOUUUUU");
+        var somerrou = new Audio();
+        somerrou.src = "Storyboard2/7.wav";
+        OhORapa(5000);
+        somerrou.play();
+        await sleep (5000);
         erros++;
         NovaPergunta();
     }
