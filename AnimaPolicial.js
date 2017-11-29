@@ -80,9 +80,9 @@ async function OhORapa(tempo) {
         await sleep(200);
         fala();
         tempo -= 200;
-        
-        
-        
+
+
+
         if (tempo >= 0) {
             await sleep(200);
             parado();
@@ -90,31 +90,31 @@ async function OhORapa(tempo) {
         }
 
 
-        
+
         if (tempo >= 0) {
             await sleep(300);
             fala();
             tempo -= 300;
         }
 
-        
-        
+
+
         if (tempo >= 0) {
             await sleep(100);
             parado();
             tempo -= 100;
         }
 
-        
-        
+
+
         if (tempo >= 0) {
             await sleep(200);
             fala();
             tempo -= 200;
         }
 
-        
-        
+
+
         if (tempo >= 0) {
             await sleep(100);
             falapisca();
@@ -122,7 +122,7 @@ async function OhORapa(tempo) {
         }
 
 
-        
+
         if (tempo >= 0) {
             await sleep(200);
             pisca();
@@ -130,7 +130,7 @@ async function OhORapa(tempo) {
         }
 
 
-        
+
         if (tempo >= 0) {
             await sleep(200);
             parado();
@@ -138,7 +138,7 @@ async function OhORapa(tempo) {
         }
 
 
-        
+
         if (tempo >= 0) {
             await sleep(200);
             fala();
@@ -146,7 +146,7 @@ async function OhORapa(tempo) {
         }
 
 
-        
+
         if (tempo >= 0) {
             await sleep(200);
             falapisca();
@@ -154,14 +154,14 @@ async function OhORapa(tempo) {
         }
 
 
-        
+
         if (tempo >= 0) {
             await sleep(200);
             pisca();
             tempo -= 200;
         }
     }
-    
+
     parado(); //volta a posiçao parado ao termino da animaçao
 }
 
@@ -171,19 +171,17 @@ var a1 = new Audio();
 var a2 = new Audio();
 
 
-a1.src = "Storyboard2/1.wav";
-//3200
-OhORapa(3200);
-a1.play();
 
+async function start() {
+    a1.src = "Storyboard2/1.wav";
+    //3200
 
+    a2.src = "Storyboard2/2.wav";
+    OhORapa(3200);
+    a1.play();
+    await sleep(4000);
+    OhORapa(7800);
+    a2.play();
+}
 
-
-
-
-
-
-
-
-
-
+start();
