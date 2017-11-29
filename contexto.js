@@ -22,4 +22,5 @@ function atualiza() {
 var somdefundo = new Audio();
 somdefundo.src = 'Storyboard2/Game-Menu_Looping.mp3'
 somdefundo.volume = 0.3;
+somdefundo.loop = true;
 somdefundo.play();
