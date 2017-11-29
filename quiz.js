@@ -56,9 +56,9 @@ function Pergunta(numero) {
 
             break;
 
-            
+
         case 1:
-            
+
             this.placa.src = "placas/lombada.png";
             this.r1 = "Obrigatorio uso de Chapeu";
             this.r2 = "Chapeu na via";
@@ -67,9 +67,9 @@ function Pergunta(numero) {
             this.resposta = 'd';
 
             break;
-            
+
         case 2:
-            
+
             this.placa.src = "placas/AreaEscolar.PNG";
             this.r1 = "Drope sua criança aqui";
             this.r2 = "Vendedores de Droga adiante";
@@ -77,7 +77,7 @@ function Pergunta(numero) {
             this.r4 = "Bata nas costas da criança a frente";
             this.resposta = 'c';
 
-            break;    
+            break;
 
 
 
@@ -151,12 +151,12 @@ Pergunta.prototype.montar = function () {
             this.l6 + this.l7 + this.l8 + this.l9;
         div.innerHTML = html;
     } else {
-        eficacia = acertos / erros; //controle.js
+        eficacia = (acertos / erros) * 100; //controle.js
         if (eficacia > 100) eficacia = 100;
         eficaciastr = '' + eficacia + '%';
         div.innerHTML = "<br><hr>Fim de Jogo<hr>" +
-            "PONTUAÇAO:<br><br>Acertos: "+acertos +
-            "<br>Erros: "+erros+"<br>Eficacia: "+eficaciastr;
+            "PONTUAÇAO:<br><br>Acertos: " + acertos +
+            "<br>Erros: " + erros + "<br>Eficacia: " + eficaciastr;
     }
 };
 
