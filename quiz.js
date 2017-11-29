@@ -172,9 +172,9 @@ Pergunta.prototype.montar = function () {
             this.l6 + this.l7 + this.l8 + this.l9;
         div.innerHTML = html;
     } else {
-        eficacia = (acertos / erros) * 100; //controle.js
-        if (eficacia > 100) eficacia = 100;
-        eficaciastr = '' + eficacia + '%';
+        eficacia = (acertos / (acertos + erros)) * 100;  //controle.js
+
+        eficaciastr = eficacia + '%';
         div.innerHTML = "<br><hr>Fim de Jogo<hr>" +
             "PONTUAÇAO:<br><br>Acertos: " + acertos +
             "<br>Erros: " + erros + "<br>Eficacia: " + eficaciastr;
