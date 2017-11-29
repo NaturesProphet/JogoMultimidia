@@ -21,6 +21,10 @@ function Pergunta(numero) {
     this.c = false;
     this.d = false;
 
+    this.som = new Audio(); //som da resposta
+    this.atraso = 0; //duracao em ms da resposta
+
+
     //resposta correta
     this.resposta = ''; //setar a resposta aqui
 
@@ -52,6 +56,8 @@ function Pergunta(numero) {
             this.r3 = "curva leve a esquerda";
             this.r4 = "curva acentuada a esquerda";
             this.resposta = 'd';
+            this.som.src = "Storyboard2/4.wav";
+            this.atraso = 3000;
 
             break;
 
@@ -62,7 +68,10 @@ function Pergunta(numero) {
             this.r3 = "reta curvilinea a direita";
             this.r2 = "curva acentuada a direita";
             this.resposta = 'b';
-            
+
+            this.som.src = "Storyboard2/CurvaD.wav";
+            this.atraso = 3000;
+
             break;
 
         case 2:
@@ -73,6 +82,10 @@ function Pergunta(numero) {
             this.r4 = "Siga em S";
             this.resposta = 'a';
 
+            this.som.src = "Storyboard2/pistaSinDir.wav";
+            this.atraso = 3000;
+
+
             break;
 
         case 3:
@@ -82,6 +95,10 @@ function Pergunta(numero) {
             this.r3 = "Via Lateral a esquerda";
             this.r4 = "Animais nja pista";
             this.resposta = 'c';
+
+            this.som.src = "Storyboard2/VilaLatEsq.wav";
+            this.atraso = 3000;
+
 
             break;
 
@@ -148,6 +165,7 @@ function Pergunta(numero) {
     dentro da div 'quiz' da div direita
 */
 Pergunta.prototype.montar = function () {
+    OhORapa(0);
     var div = document.getElementById('quiz');
     if (this.gameover == false) {
         var html = this.l1 + this.l2 + this.l3 + this.l4 + this.l5 +
@@ -167,7 +185,7 @@ Pergunta.prototype.montar = function () {
     Este metodo valida a resposta fornecida pelo 
     usuario no formulario
 */
-Pergunta.prototype.ValidaResposta = function () {
+Pergunta.prototype.ValidaResposta = async function () {
     var userchoice;
     var radio1 = document.getElementById('a');
     var radio2 = document.getElementById('b');
@@ -179,10 +197,16 @@ Pergunta.prototype.ValidaResposta = function () {
     if (radio3.checked) userchoice = 'c';
     if (radio4.checked) userchoice = 'd';
 
+    this.som.play();
+    OhORapa(3000);
+    await sleep(3000);
+
     if (userchoice == pergunta.resposta) {
         var somacertou = new Audio();
         somacertou.src = "Storyboard2/6.wav";
         somacertou.play();
+        OhORapa(3000);
+        await sleep(3000);
 
 
         acertos++;
@@ -191,7 +215,9 @@ Pergunta.prototype.ValidaResposta = function () {
 
         var somerrou = new Audio();
         somerrou.src = "Storyboard2/7.wav";
+        OhORapa(5000);
         somerrou.play();
+        await sleep (5000);
         erros++;
         NovaPergunta();
     }
