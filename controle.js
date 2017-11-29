@@ -10,11 +10,24 @@
 
 */
 
-//auxiliar que define qual pergunta sera chamada
+//contadores
 var PerguntasFeitas = 0;
 var acertos = 0;
 var erros = 0;
 var eficacia = 0;
+
+//zera contadores e começa um novo jogo
+function novojogo() {
+    PerguntasFeitas = 0;
+    acertos = 0;
+    erros = 0;
+    eficacia = 0;
+    limpatela();
+    NovaPergunta();
+}
+
+
+
 
 
 function NovaPergunta() {
