@@ -9,29 +9,6 @@
     email: mateus.gigainfo@gmail.com
 
 */
-//inicio - policial explicando as paradinha
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //contadores
 var PerguntasFeitas = 0;

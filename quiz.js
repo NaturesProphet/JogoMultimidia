@@ -52,50 +52,38 @@ function Pergunta(numero) {
             this.r3 = "curva leve a esquerda";
             this.r4 = "curva acentuada a esquerda";
             this.resposta = 'd';
-            
-            break;
-            
-            
-            
-            
-            
-            
-        case 99:
-
-            this.placa.src = "placas/VelMax.PNG";
-            this.r1 = "Velocidade Minima permitida 80KM/h";
-            this.r2 = "Velocidade Maxima permitida 80KM/h";
-            this.r3 = "Pistas em 8 e circulares a frente";
-            this.r4 = "Pedagio R$ 80,00";
-            this.resposta = 'b';
 
             break;
-
 
         case 1:
-
-            this.placa.src = "placas/lombada.png";
-            this.r1 = "Obrigatorio uso de Chapeu";
-            this.r2 = "Chapeu na via";
-            this.r3 = "vendedor de chapeus a frente";
-            this.r4 = "Lombada";
-            this.resposta = 'd';
-
+            this.placa.src = "placas/curvaD.PNG";
+            this.r1 = "Uno Bengador a direita";
+            this.r4 = "Bolsonaro vem ai";
+            this.r3 = "reta curvilinea a direita";
+            this.r2 = "curva acentuada a direita";
+            this.resposta = 'b';
+            
             break;
 
         case 2:
-
-            this.placa.src = "placas/AreaEscolar.PNG";
-            this.r1 = "Drope sua criança aqui";
-            this.r2 = "Vendedores de Droga adiante";
-            this.r3 = "Area Escolar";
-            this.r4 = "Bata nas costas da criança a frente";
-            this.resposta = 'c';
+            this.placa.src = "placas/pistaSinDir.PNG";
+            this.r1 = "Pista sinuosa a direita";
+            this.r2 = "Condutores em zigue-zague obrigatorio";
+            this.r3 = "Santander a frente";
+            this.r4 = "Siga em S";
+            this.resposta = 'a';
 
             break;
 
+        case 3:
+            this.placa.src = "placas/vialateralEsq.PNG";
+            this.r1 = "Transito impedido";
+            this.r2 = "em terra fofa, Tatu caminha dentro";
+            this.r3 = "Via Lateral a esquerda";
+            this.r4 = "Animais nja pista";
+            this.resposta = 'c';
 
-
+            break;
 
 
         default:
@@ -195,7 +183,7 @@ Pergunta.prototype.ValidaResposta = function () {
         var somacertou = new Audio();
         somacertou.src = "Storyboard2/6.wav";
         somacertou.play();
-        
+
 
         acertos++;
         NovaPergunta();
