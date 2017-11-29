@@ -174,7 +174,7 @@ Pergunta.prototype.montar = function () {
     } else {
         eficacia = (acertos / (acertos + erros)) * 100;  //controle.js
 
-        eficaciastr = eficacia + '%';
+        eficaciastr = eficacia + ' %';
         div.innerHTML = "<br><hr>Fim de Jogo<hr>" +
             "PONTUAÇAO:<br><br>Acertos: " + acertos +
             "<br>Erros: " + erros + "<br>Eficacia: " + eficaciastr;

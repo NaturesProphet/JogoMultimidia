@@ -18,3 +18,8 @@ function atualiza() {
     var sHeight = 400;
     ctx.drawImage(fundo, sx, sy, sWidth, sHeight, sx, sy, sWidth, sHeight);
 }
+
+var somdefundo = new Audio();
+somdefundo.src = 'Storyboard2/Game-Menu_Looping.mp3'
+somdefundo.volume = 0.3;
+somdefundo.play();
